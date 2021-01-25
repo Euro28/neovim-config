@@ -36,8 +36,8 @@ Plug 'christoomey/vim-tmux-navigator'
 
 "error messages if doesnt compile
 Plug 'vim-syntastic/syntastic'
+Plug 'prettier/vim-prettier', {'do': 'yarn install'}
 
-Plug 'Chiel92/vim-autoformat'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'uiiaoo/java-syntax.vim'
@@ -56,14 +56,12 @@ let g:gruvbox_contrast_dark = 'soft'
 
 colorscheme gruvbox
 
-"prettier on save :w
-au BufWrite * :Autoformat
-
 "tab size is 2 in js and jsx files
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 et
 autocmd FileType javascriptreact setlocal shiftwidth=2 tabstop=2 et
 
 autocmd FileType java setlocal shiftwidth=2 tabstop=2 et
+autocmd BufWritePost * :Prettier
 
 inoremap jj <Esc>
 nnoremap H ^
