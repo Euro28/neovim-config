@@ -36,6 +36,7 @@ Plug 'christoomey/vim-tmux-navigator'
 
 "error messages if doesnt compile
 Plug 'vim-syntastic/syntastic'
+"only works for web dev langugagse like javascript, typescript html etc..
 Plug 'prettier/vim-prettier', {'do': 'yarn install'}
 
 Plug 'yuezk/vim-js'
@@ -45,6 +46,8 @@ Plug 'uiiaoo/java-syntax.vim'
 call plug#end()
 
 let g:python3_host_prog='/usr/bin/python3'
+let g:python_host_prog='/usr/bin/python'
+
 
 " auto closing tags for jsx files so things like <div> auto close
 let g:closetag_filenames = '*.jsx'
@@ -60,8 +63,9 @@ colorscheme gruvbox
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 et
 autocmd FileType javascriptreact setlocal shiftwidth=2 tabstop=2 et
 
-autocmd FileType java setlocal shiftwidth=2 tabstop=2 et
-autocmd BufWritePost * :Prettier
+autocmd FileType javascript BufWritePost * :Prettier
+autocmd FileType javascriptreact BufWritePost * :Prettier
+autocmd BufWritePost * :%!astyle
 
 inoremap jj <Esc>
 nnoremap H ^
