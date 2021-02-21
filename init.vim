@@ -50,8 +50,9 @@ let g:python_host_prog='/usr/bin/python'
 
 
 " auto closing tags for jsx files so things like <div> auto close
-let g:closetag_filenames = '*.jsx'
-let g:closetag_xhtml_filenames = '*.jsx'
+let g:closetag_filenames = '*.jsx,*.js'
+let g:closetag_xhtml_filenames = '*.jsx,*.js'
+let g:closetag_shortcut = ">"
 
 let g:rainbow_active = 1
 
@@ -63,9 +64,11 @@ colorscheme gruvbox
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 et
 autocmd FileType javascriptreact setlocal shiftwidth=2 tabstop=2 et
 
-autocmd FileType javascript BufWritePost * :Prettier
-autocmd FileType javascriptreact BufWritePost * :Prettier
-autocmd BufWritePost * :%!astyle
+autocmd BufWritePost * :Prettier
+
+"autocmd FileType javascript BufWritePost * :Prettier
+"autocmd FileType javascriptreact BufWritePost * :Prettier
+"autocmd BufWritePost * :%!astyle
 
 inoremap jj <Esc>
 nnoremap H ^
