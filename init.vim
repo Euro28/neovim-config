@@ -43,6 +43,7 @@ Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'uiiaoo/java-syntax.vim'
 
+Plug 'vim-latex/vim-latex'
 call plug#end()
 
 let g:python3_host_prog='/usr/bin/python3'
