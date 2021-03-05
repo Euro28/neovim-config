@@ -1,4 +1,5 @@
 set foldcolumn=0
+set encoding=utf-8
 set signcolumn=no
 set number
 set relativenumber
@@ -44,7 +45,9 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'uiiaoo/java-syntax.vim'
 
 Plug 'vim-latex/vim-latex'
+
 call plug#end()
+
 
 let g:python3_host_prog='/usr/bin/python3'
 let g:python_host_prog='/usr/bin/python'
@@ -65,11 +68,22 @@ colorscheme gruvbox
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 et
 autocmd FileType javascriptreact setlocal shiftwidth=2 tabstop=2 et
 
-autocmd BufWritePost * :Prettier
+autocmd BufWritePost *.js *.jsx :Prettier
+	
 
 "autocmd FileType javascript BufWritePost * :Prettier
 "autocmd FileType javascriptreact BufWritePost * :Prettier
 "autocmd BufWritePost * :%!astyle
+
+
+:au BufNewFile,BufRead *.py
+    \set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
 
 inoremap jj <Esc>
 nnoremap H ^
